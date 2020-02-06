@@ -12,23 +12,30 @@
     <div class="form-group">
       <label class="form-control-label">Nome</label>
       <input type="text" class="form-control" name="nome"
-      [(ngModel)]="cliente.nome" required minlength="5">
+      [(ngModel)]="cliente.nome" required minlength="5" #nome="ngModel">
+
+      <div class="alert alert-danger" *ngIf="nome.hasError('required')">Informe um nome</div>
+      <div class="alert alert-danger" *ngIf="nome.hasError('minlength')">O nome deve ser completo</div>
     </div>
 
     <div class="form-group">
       <label class="form-control-label">E-mail</label>
       <input type="text" class="form-control" name="email"
-      [(ngModel)]="cliente.email" required email>
+      [(ngModel)]="cliente.email" email #email="ngModel">
+
+      <div class="alert alert-danger" *ngIf="email.invalid">Informe um e-mail válido</div>
     </div>
 
     <div class="form-group">
       <label class="form-control-label">Profissão</label>
       <select class="form-control" name="profissao" [(ngModel)]="cliente.profissao"
-        required>
+        required #profissao="ngModel">
         <option value="">Selecione</option>
         <option *ngFor="let profissao of profissoes"
           [value]="profissao">{{profissao}}</option>
       </select>
+
+      <div class="alert alert-danger" *ngIf="profissao.invalid">Selecione uma profissão</div>
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!usuarioForm.valid">Salvar</button>
