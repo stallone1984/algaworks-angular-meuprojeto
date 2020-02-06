@@ -4,7 +4,7 @@
   <br>
   Formulário válido: {{usuarioForm.valid}}
 
-  <div *ngIf="usuarioForm.invalid" class="alert alert-danger">
+  <div *ngIf="usuarioForm.invalid && usuarioForm.dirty" class="alert alert-danger">
     Preencha todos os campos corretamente
   </div>
 
@@ -14,8 +14,8 @@
       <input type="text" class="form-control" name="nome"
       [(ngModel)]="cliente.nome" required minlength="5" #nome="ngModel">
 
-      <div class="alert alert-danger" *ngIf="nome.hasError('required')">Informe um nome</div>
-      <div class="alert alert-danger" *ngIf="nome.hasError('minlength')">O nome deve ser completo</div>
+      <div class="alert alert-danger" *ngIf="nome.hasError('required') && nome.touched">Informe um nome</div>
+      <div class="alert alert-danger" *ngIf="nome.hasError('minlength') && nome.touched">O nome deve ser completo</div>
     </div>
 
     <div class="form-group">
@@ -23,7 +23,7 @@
       <input type="text" class="form-control" name="email"
       [(ngModel)]="cliente.email" email #email="ngModel">
 
-      <div class="alert alert-danger" *ngIf="email.invalid">Informe um e-mail válido</div>
+      <div class="alert alert-danger" *ngIf="email.invalid && email.touched">Informe um e-mail válido</div>
     </div>
 
     <div class="form-group">
@@ -35,7 +35,7 @@
           [value]="profissao">{{profissao}}</option>
       </select>
 
-      <div class="alert alert-danger" *ngIf="profissao.invalid">Selecione uma profissão</div>
+      <div class="alert alert-danger" *ngIf="profissao.invalid && profissao.touched">Selecione uma profissão</div>
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!usuarioForm.valid">Salvar</button>
