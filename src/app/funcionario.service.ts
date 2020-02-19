@@ -13,3 +13,10 @@ export class FuncionarioService {
         return this.funcionarios;
     }
 }
+
+export class FuncionarioAbreviadoService extends FuncionarioService {
+    adicionar(funcionario) {
+        funcionario['nome'] = funcionario['nome'].substr(0, 3)  + '...'
+        super.adicionar(funcionario);
+    }
+}
