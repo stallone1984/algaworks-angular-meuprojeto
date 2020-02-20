@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ export class CidadeService {
     private http: HttpClient
   ) { }
 
-  consultar(): Promise<any> {
-    return  this.http.get('http://localhost:3000/cidades').toPromise();
+  consultar(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/cidades');
   }
+
+  adicionar(cidade: any): Promise<any> {
+    return this.http.post('http://localhost:3000/cidades', 
+    cidade).toPromise()
+  }
+
 }

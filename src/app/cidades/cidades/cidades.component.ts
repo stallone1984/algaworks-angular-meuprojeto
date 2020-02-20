@@ -13,14 +13,22 @@ export class CidadesComponent implements OnInit {
   constructor(private cidadeService: CidadeService) { }
 
   ngOnInit() {
+    this.consultar();
+  }
+
+  consultar() {
     this.cidadeService.consultar()
-    .then(cidades => {
+    .subscribe(cidades => {
       this.cidades = cidades;
     });
   }
 
   adicionar(nome) {
-    alert(nome);
+    this.cidadeService.adicionar({nome: nome})
+    .then(cidade => {
+      alert(`Cidade ${cidade.nome} adicionada com id ${cidade.id}`)
+      this.consultar();
+    })
   }
 
   atualizar(cidade) {
