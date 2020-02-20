@@ -1,19 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
 import { BemVindoComponent } from './bem-vindo/bem-vindo.component';
-import { FuncionarioCardComponent } from './funcionario/funcionario-card/funcionario-card.component';
-import { FuncionarioFormComponent } from './funcionario/funcionario-form/funcionario-form.component';
 import { CampoColoridoDirective } from './campo-colorido.directive';
-import { FormTemplateDrivenComponent } from './form-template-driven/form-template-driven.component';
-import { NavegacaoModule } from './navegacao/navegacao.module';
-import { FuncionarioService } from './funcionario/funcionario.service';
-import { LogService } from './log.service';
-import { FuncionarioModule } from './funcionario/funcionario.module';
+import { CidadeService } from './cidades/cidade.service';
 import { CidadesModule } from './cidades/cidades.module';
+import { FormTemplateDrivenComponent } from './form-template-driven/form-template-driven.component';
+import { FuncionarioModule } from './funcionario/funcionario.module';
+import { HelloComponent } from './hello/hello.component';
+import { LogService } from './log.service';
+import { NavegacaoModule } from './navegacao/navegacao.module';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +25,15 @@ import { CidadesModule } from './cidades/cidades.module';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NavegacaoModule,
     FuncionarioModule,
     CidadesModule
   ],
   providers: [
     LogService,
-    { provide: 'LogPrefixo', useValue: 'LOG'}
+    { provide: 'LogPrefixo', useValue: 'LOG'},
+    CidadeService
   ],
   bootstrap: [AppComponent]
 })
