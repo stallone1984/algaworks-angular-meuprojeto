@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from './funcionario.service';
+import { LogService } from './log.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,14 @@ export class AppComponent implements OnInit {
 
 
   constructor(
-    private funcionarioService: FuncionarioService
+    private funcionarioService: FuncionarioService,
+    private logService: LogService
   ){
     
   }
 
   aoAdicionar(funcionario) {
+    this.logService.log(`Adicionando ${funcionario['nome']}`);
     this.funcionarioService.adicionar(funcionario)
     this.funcionarios = this.funcionarioService.consultar();
   }

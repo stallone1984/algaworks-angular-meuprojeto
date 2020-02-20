@@ -5,8 +5,6 @@ export class FuncionarioService {
 
     adicionar(funcionario) {
         this.funcionarios.push(funcionario);
-        console.log(JSON.stringify(this.funcionarios));
-        
     }
 
     consultar() {

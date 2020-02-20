@@ -11,6 +11,7 @@ import { CampoColoridoDirective } from './campo-colorido.directive';
 import { FormTemplateDrivenComponent } from './form-template-driven/form-template-driven.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { FuncionarioService, FuncionarioAbreviadoService } from './funcionario.service';
+import { LogService } from './log.service';
 
 const criarFuncionarioService = () => {
   return new FuncionarioAbreviadoService(2);
@@ -32,7 +33,9 @@ const criarFuncionarioService = () => {
     NavegacaoModule
   ],
   providers: [
-    { provide: FuncionarioService, useFactory: criarFuncionarioService }
+    { provide: FuncionarioService, useFactory: criarFuncionarioService },
+    LogService,
+    { provide: 'LogPrefixo', useValue: 'LOG'}
   ],
   bootstrap: [AppComponent]
 })
