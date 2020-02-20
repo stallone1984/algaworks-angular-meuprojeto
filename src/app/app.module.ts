@@ -13,6 +13,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { FuncionarioService } from './funcionario/funcionario.service';
 import { LogService } from './log.service';
 import { FuncionarioModule } from './funcionario/funcionario.module';
+import { CidadesModule } from './cidades/cidades.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FuncionarioModule } from './funcionario/funcionario.module';
     BrowserModule,
     FormsModule,
     NavegacaoModule,
-    FuncionarioModule
+    FuncionarioModule,
+    CidadesModule
   ],
   providers: [
     LogService,
