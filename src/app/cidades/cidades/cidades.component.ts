@@ -31,8 +31,12 @@ export class CidadesComponent implements OnInit {
     })
   }
 
-  atualizar(cidade) {
-    alert(JSON.stringify(cidade));
+  atualizar(cidade: any) {
+    this.cidadeService.atualizar(cidade)
+    .then(() => {
+      alert('Cidade alterada com sucesso');
+      this.consultar();
+    })
   }
 
   excluir(id) {
