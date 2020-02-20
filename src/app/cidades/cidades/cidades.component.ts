@@ -36,6 +36,8 @@ export class CidadesComponent implements OnInit {
     .then(() => {
       alert('Cidade alterada com sucesso');
       this.consultar();
+    }).catch(erro => {
+      alert(erro)
     })
   }
 
