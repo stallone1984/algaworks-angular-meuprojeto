@@ -36,7 +36,12 @@ export class CidadesComponent implements OnInit {
   }
 
   excluir(id) {
-    alert(id);
+    this.cidadeService.excluir(id)
+    .then(() => {
+      console.log('Cidade excluída com sucesso');
+      this.consultar();
+      
+    })
   }
 
 }

@@ -20,4 +20,8 @@ export class CidadeService {
     cidade).toPromise()
   }
 
+  excluir(id): Promise<void> {
+    return this.http.delete(`http://localhost:3000/cidades/${id}`)
+    .toPromise().then(() => null)
+  }
 }

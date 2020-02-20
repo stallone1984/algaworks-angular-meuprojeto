@@ -1,14 +1,6 @@
 {
   "cidades": [
     {
-      "nome": "São Paulo",
-      "id": 2
-    },
-    {
-      "nome": "Fortaleza 3",
-      "id": 3
-    },
-    {
       "id": 4,
       "nome": "Aparecida do Norte"
     },
@@ -19,14 +11,6 @@
     {
       "nome": "Piquete",
       "id": 6
-    },
-    {
-      "nome": "Petro",
-      "id": 7
-    },
-    {
-      "nome": "Itupo",
-      "id": 8
     },
     {
       "nome": "Rio do Sul",
